@@ -1,0 +1,6 @@
+@copaHAS_HostAddress = http://localhost:5123
+
+GET {{copaHAS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
