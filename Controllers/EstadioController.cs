@@ -37,22 +37,42 @@ namespace copaHAS.Controllers
         [HttpGet("GetAll")]
         public IActionResult ObterEstadios()
         {
+            try
+            {
             List<Estadio> lista = listaEstadios;
             return Ok(lista);
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message + "-" + ex.InnerException);
+            }
         } 
 
         [HttpPost]
         public IActionResult InserirEstadio(Estadio j)
         {
+            try{
             listaEstadios.Add(j);
             return Ok(listaEstadios);
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message + "-" + ex.InnerException);
+            }
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            try
+            {
             listaEstadios.RemoveAll(j => j.Id == id);
             return Ok(listaEstadios);
+            }
+            catch(System.Exception ex)
+            {
+                return BadRequest(ex.Message + "-" + ex.InnerException);
+            }
         }
 
         
